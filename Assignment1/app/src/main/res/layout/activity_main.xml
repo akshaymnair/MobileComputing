@@ -132,7 +132,8 @@
                 android:layout_height="wrap_content"
                 android:background="@android:color/holo_green_light"
                 android:text="RUN"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:id="@+id/runButton"/>
 
             <Button
                 android:layout_width="0dp"
@@ -140,7 +141,8 @@
                 android:layout_height="wrap_content"
                 android:background="@android:color/holo_red_light"
                 android:text="STOP"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:id="@+id/stopButton"/>
         </LinearLayout>
     </LinearLayout>
 

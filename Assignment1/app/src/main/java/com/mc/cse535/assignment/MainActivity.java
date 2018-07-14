@@ -13,14 +13,19 @@ import com.jjoe64.graphview.series.LineGraphSeries;
 import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
-    private Handler graphHandler = new Handler();
-    // the message queue to communicate to runGraph thread
-    private double lastXpoint=0;
+    private Handler graphHandler = new Handler();    // the message queue to communicate to runGraph thread
+    private double lastXpoint = 0;
     private Random random = new Random();
-    private  Runnable graphThread;
-
-    GraphView graph;
-    LineGraphSeries<DataPoint> series;
+    public GraphView graph;
+    public LineGraphSeries<DataPoint> series;
+    private Runnable graphThread = new Runnable() {
+        @Override
+        public void run() {
+            series.appendData(new DataPoint(lastXpoint, random.nextInt(500)), false, 1000);
+            lastXpoint += 10;
+            runGraph();
+        }
+    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,21 +52,13 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
-    private void stopGraph(){
+
+    private void stopGraph() {
         graph.removeAllSeries();
         graphHandler.removeCallbacks(graphThread);
     }
+
     private void runGraph() {
-        graphThread = new Runnable() {
-            @Override
-            public void run() {
-                series.appendData(new DataPoint(lastXpoint,random.nextInt(500)),false,1000);
-                lastXpoint+=50;
-//                graph.addSeries(series);
-                runGraph();
-            }
-        };
-        graphHandler.postDelayed(graphThread,500);
+        graphHandler.postDelayed(graphThread, 500);
     }
 }
-

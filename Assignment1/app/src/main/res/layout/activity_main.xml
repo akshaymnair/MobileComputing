@@ -7,10 +7,9 @@
 
     <LinearLayout
         android:id="@+id/ui"
-        android:background="@android:color/darker_gray"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        >
+        android:background="@android:color/darker_gray">
 
         <LinearLayout
             android:id="@+id/layId"
@@ -24,8 +23,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:padding="8dp"
-                android:textStyle="bold"
-                android:text="Patient ID" />
+                android:text="Patient ID"
+                android:textStyle="bold" />
 
             <EditText
                 android:id="@+id/pIdText"
@@ -46,9 +45,9 @@
                 android:id="@+id/age"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textStyle="bold"
                 android:padding="8dp"
-                android:text="Age" />
+                android:text="Age"
+                android:textStyle="bold" />
 
             <EditText
                 android:id="@+id/ageText"
@@ -69,9 +68,9 @@
                 android:id="@+id/name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textStyle="bold"
                 android:padding="8dp"
-                android:text="Patient Name" />
+                android:text="Patient Name"
+                android:textStyle="bold" />
 
             <EditText
                 android:id="@+id/nameText"
@@ -93,8 +92,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:padding="8dp"
-                android:textStyle="bold"
-                android:text="Sex" />
+                android:text="Sex"
+                android:textStyle="bold" />
 
             <RadioGroup
                 android:layout_width="wrap_content"
@@ -105,15 +104,15 @@
                     android:id="@+id/radio_male"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textStyle="bold"
-                    android:text="Male" />
+                    android:text="Male"
+                    android:textStyle="bold" />
 
                 <RadioButton
                     android:id="@+id/radio_female"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textStyle="bold"
-                    android:text="Female" />
+                    android:text="Female"
+                    android:textStyle="bold" />
             </RadioGroup>
 
         </LinearLayout>
@@ -127,30 +126,30 @@
             android:padding="8dp">
 
             <Button
+                android:id="@+id/runButton"
                 android:layout_width="0dp"
-                android:layout_weight="1"
                 android:layout_height="wrap_content"
+                android:layout_weight="1"
                 android:background="@android:color/holo_green_light"
                 android:text="RUN"
-                android:textStyle="bold"
-                android:id="@+id/runButton"/>
+                android:textStyle="bold" />
 
             <Button
+                android:id="@+id/stopButton"
                 android:layout_width="0dp"
-                android:layout_weight="1"
                 android:layout_height="wrap_content"
+                android:layout_weight="1"
                 android:background="@android:color/holo_red_light"
                 android:text="STOP"
-                android:textStyle="bold"
-                android:id="@+id/stopButton"/>
+                android:textStyle="bold" />
         </LinearLayout>
     </LinearLayout>
 
     <com.jjoe64.graphview.GraphView
         android:id="@+id/graph"
-        android:padding="8dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/ui"/>
+        android:layout_below="@id/ui"
+        android:padding="8dp" />
 
 </RelativeLayout>

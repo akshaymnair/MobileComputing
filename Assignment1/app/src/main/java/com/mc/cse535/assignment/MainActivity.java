@@ -14,15 +14,15 @@ import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
     private Handler graphHandler = new Handler();    // the message queue to communicate to runGraph thread
-    private double lastXpoint = 0;
+    private int lastXpoint = 0;
     private Random random = new Random();
     public GraphView graph;
     public LineGraphSeries<DataPoint> series;
     private Runnable graphThread = new Runnable() {
         @Override
         public void run() {
-            series.appendData(new DataPoint(lastXpoint, random.nextInt(500)), false, 1000);
-            lastXpoint += 10;
+            series.appendData(new DataPoint(lastXpoint++,  250*Math.sin(lastXpoint*7)*Math.sin(lastXpoint/2)*Math.cos(3.25*lastXpoint)), true, 1000);
+            //lastXpoint += 10;
             runGraph();
         }
     };
@@ -34,7 +34,15 @@ public class MainActivity extends AppCompatActivity {
 
         graph = findViewById(R.id.graph);
         series = new LineGraphSeries<>();
+        graph.getViewport().setYAxisBoundsManual(true);
+        graph.getViewport().setMinY(-300);
+        graph.getViewport().setMaxY(300);
 
+        graph.getViewport().setXAxisBoundsManual(true);
+        graph.getViewport().setMinX(4);
+        graph.getViewport().setMaxX(80);
+        graph.getViewport().setScalable(true); // enables horizontal zooming and scrolling
+        graph.getViewport().setScalableY(true); // enables vertical zooming and scrolling
         final Button runButton = findViewById(R.id.runButton);
         runButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
@@ -59,6 +67,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void runGraph() {
-        graphHandler.postDelayed(graphThread, 500);
+        graphHandler.postDelayed(graphThread, 300);
     }
 }

@@ -18,9 +18,11 @@ public class MainActivity extends AppCompatActivity {
     private Random random = new Random();
     public GraphView graph;
     public LineGraphSeries<DataPoint> series;
+    private boolean running = false;
     private Runnable graphThread = new Runnable() {
         @Override
         public void run() {
+            //add values to the graph similar to the heart beat
             series.appendData(new DataPoint(lastXpoint++,  250*Math.sin(lastXpoint*7)*Math.sin(lastXpoint/2)*Math.cos(3.25*lastXpoint)), true, 1000);
             //lastXpoint += 10;
             runGraph();
@@ -34,6 +36,7 @@ public class MainActivity extends AppCompatActivity {
 
         graph = findViewById(R.id.graph);
         series = new LineGraphSeries<>();
+        //setting the graph x axis and y axis
         graph.getViewport().setYAxisBoundsManual(true);
         graph.getViewport().setMinY(-300);
         graph.getViewport().setMaxY(300);
@@ -47,7 +50,11 @@ public class MainActivity extends AppCompatActivity {
         runButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 // Code here executes on main thread after user presses button
-                graph.addSeries(series);
+                //if graph is not running add the graph
+                if(!running) {
+                    graph.addSeries(series);
+                }
+                running = true;
                 runGraph();
             }
         });
@@ -62,8 +69,13 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void stopGraph() {
-        graph.removeAllSeries();
-        graphHandler.removeCallbacks(graphThread);
+        //if graph is running remove the graph and stop the thread
+        if(running) {
+            graph.removeAllSeries();
+            graphHandler.removeCallbacks(graphThread);
+        }
+        //set graph status as not running and stop the thread
+        running = false;
     }
 
     private void runGraph() {

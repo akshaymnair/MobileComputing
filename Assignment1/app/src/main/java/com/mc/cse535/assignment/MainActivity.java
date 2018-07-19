@@ -53,12 +53,11 @@ public class MainActivity extends AppCompatActivity {
                 //if graph is not running add the graph
                 if(!running) {
                     graph.addSeries(series);
+                    running = true;
+                    runGraph();
                 }
-                running = true;
-                runGraph();
             }
         });
-
         final Button stopButton = findViewById(R.id.stopButton);
         stopButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {

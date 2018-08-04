@@ -6,13 +6,132 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="0dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="5dp"
+            android:background="@color/gray"
+            android:gravity="center"
+            android:text="EEg Authentication"
+            android:textColor="#000"
+            android:textSize="20sp" />
+
+        <Space
+            android:layout_width="1dp"
+            android:layout_height="30dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="5dp"
+            android:background="@color/gray"
+            android:gravity="center"
+            android:text="Login Name"
+            android:textColor="@color/black" />
+
+        <Space
+            android:layout_width="1dp"
+            android:layout_height="10dp" />
+
+        <Spinner
+            android:id="@+id/name_spinner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <Space
+            android:layout_width="1dp"
+            android:layout_height="10dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/gray"
+            android:layout_margin="5dp"
+            android:gravity="center"
+            android:text="Algorithm"
+            android:textColor="@color/black" />
+
+        <Space
+            android:layout_width="1dp"
+            android:layout_height="10dp" />
+
+        <Spinner
+            android:id="@+id/algorithm_spinner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <Space
+            android:layout_width="1dp"
+            android:layout_height="10dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/gray"
+            android:layout_margin="5dp"
+            android:gravity="center"
+            android:text="Server"
+            android:textColor="@color/black" />
+
+        <Space
+            android:layout_width="1dp"
+            android:layout_height="10dp" />
+
+        <Spinner
+            android:id="@+id/server_type_spinner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <Button
+            android:id="@+id/server_run_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="AUTHENTICATE" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:text="RESULT"
+            android:textAlignment="center"
+            android:textColor="@color/colorPrimary"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/authenticate_result"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:textAlignment="center"
+            android:textColor="@color/colorPrimary"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/text1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:textAlignment="center"
+            android:textColor="@color/colorPrimary"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/text2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:textAlignment="center"
+            android:textColor="@color/colorPrimary"
+            android:textSize="20sp" />
+
+    </LinearLayout>
 
 </android.support.constraint.ConstraintLayout>

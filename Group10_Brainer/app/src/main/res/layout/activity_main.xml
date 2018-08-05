@@ -19,9 +19,9 @@
             android:layout_margin="5dp"
             android:background="@color/gray"
             android:gravity="center"
-            android:text="EEg Authentication"
+            android:text="EEG Authentication"
             android:textColor="#000"
-            android:textSize="20sp" />
+            android:textSize="20dp" />
 
         <Space
             android:layout_width="1dp"
